@@ -16,7 +16,9 @@
  * Redis ([Docker image](https://store.docker.com/images/redis))
 
 
-    # Just a hint:
-    docker run -p 6379:6379 redis
+```
+# Just a hint:
+docker run -p 6379:6379 redis
+```
 
 Alternatively, Kafka can be used transparently, see `pom.xml`.
