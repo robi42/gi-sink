@@ -1,6 +1,7 @@
 spring:
   application:
     name: gi-sink
+  output.ansi.enabled: always
 
   jackson:
     serialization:
