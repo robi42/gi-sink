@@ -12,7 +12,7 @@ import org.springframework.test.context.junit4.SpringRunner
 @RunWith(SpringRunner::class)
 @SpringBootTest class GiSinkApplicationTests {
 
-    @Ignore("Requires running Redis")
+    @Ignore("Requires running Redis/Kafka")
     @Test fun `context loads`() {}
 
 }
