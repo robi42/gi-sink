@@ -75,6 +75,7 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-stream-test-support</artifactId>
             <version>${spring-cloud-stream.version}</version>
+            <!-- Comment out explicit version when using Kafka. -->
             <scope>test</scope>
         </dependency>
         <dependency>
