@@ -1,7 +1,7 @@
 # GI Sink
 
 [Tinkering](http://docs.spring.io/spring-cloud-stream/docs/current/reference/htmlsingle/#_getting_started) 
-with event consuming.
+with event consumption.
 
 ## Build
 
