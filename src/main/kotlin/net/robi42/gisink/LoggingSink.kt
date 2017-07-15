@@ -11,7 +11,7 @@ class LoggingSink {
 
     @StreamListener(Sink.INPUT)
     fun log(greeting: Greeting) {
-        log.info("Received: '$greeting'")
+        log.info("Received: '{}'", greeting)
     }
 
 }
