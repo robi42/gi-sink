@@ -1,0 +1,9 @@
+spring:
+  application.name: gisink-test
+  main.banner-mode: "off"
+
+management.port: -1
+
+logging.level:
+  root: ERROR
+  net.robi42.gisink: WARN

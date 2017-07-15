@@ -1,0 +1,29 @@
+spring:
+  application:
+    name: gi-sink
+
+  jackson:
+    serialization:
+      write-date-timestamps-as-nanoseconds: false
+    deserialization:
+      read-date-timestamps-as-nanoseconds: false
+
+  cloud.stream:
+    bindings.input:
+      destination: greetings
+      content-type: application/json
+
+server:
+  port: 8090
+management:
+  port: 8899
+  context-path: /manage
+
+security:
+  basic.path: ${management.context-path}/**
+  user: # Override credentials in production.
+    name: admin
+    password: secret
+
+logging.level:
+  net.robi42.gisink: DEBUG
