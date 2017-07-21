@@ -10,13 +10,14 @@ spring:
 
   cloud.stream:
     bindings.input:
-      destination: greetings
+#      destination: greetings
+      destination: transformed-greetings
       content-type: application/json
 
 server:
   port: -1
 management:
-  port: 8899
+  port: 8999
   context-path: /manage
 
 security:
