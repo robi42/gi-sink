@@ -16,17 +16,25 @@ class DatabasePersistingSink(private val repository: GreetingRepository) {
     private val log by logger()
 
     @StreamListener(Sink.INPUT)
-    fun store(greeting: Greeting) {
-        log.info("Received: '{}'", greeting.text)
-        repository.save(greeting)
+    fun store(greeting: GreetingDto) {
+        log.info("Received: '{}'", greeting)
+        repository.save(Greeting(
+                text = greeting.text,
+                timestamp = greeting.timestamp
+        ))
         log.debug("So far, stored {} greetings", repository.count())
     }
 
 }
 
+data class GreetingDto(
+        val text: String,
+        val timestamp: Instant
+)
+
 @Entity data class Greeting(
         @GeneratedValue
-        @Id val id: Long,
+        @Id val id: Long? = null,
         val text: String,
         val timestamp: Instant
 )
