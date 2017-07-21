@@ -11,7 +11,7 @@ fun main(args: Array<String>) {
     SpringApplication.run(GiSinkApplication::class.java, *args)
 }
 
-@EntityScan(
+@EntityScan( // Enable `java.time.*` types for relational database persistence via JPA.
         basePackageClasses = arrayOf(GiSinkApplication::class, Jsr310JpaConverters::class)
 )
 @SpringBootApplication
