@@ -15,7 +15,7 @@ import javax.inject.Inject
 @SpringBootTest class GiSinkApplicationTests {
 
     @Inject
-    @Bindings(LoggingSink::class)
+    @Bindings(DatabasePersistingSink::class)
     @Suppress("SpringKotlinAutowiring")
     private lateinit var sink: Sink
 

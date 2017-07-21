@@ -1,0 +1,24 @@
+databaseChangeLog:
+
+  - changeSet:
+      id: 0
+      author: rthurnher
+      changes:
+        - createTable:
+            tableName: greeting
+            columns:
+                - column:
+                    name: id
+                    type: bigint
+                    autoIncrement: true
+                    constraints:
+                        primaryKey: true
+                        nullable: false
+                - column:
+                    name: text
+                    type: text
+                - column:
+                    name: timestamp
+                    type: datetime
+                    constraints:
+                        nullable: false
