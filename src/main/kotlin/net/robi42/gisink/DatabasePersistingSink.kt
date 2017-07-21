@@ -16,7 +16,7 @@ class DatabasePersistingSink(private val repository: GreetingRepository) {
     private val log by logger()
 
     @StreamListener(Sink.INPUT)
-    fun log(greeting: Greeting) {
+    fun store(greeting: Greeting) {
         log.info("Received: '{}'", greeting)
         repository.save(greeting)
         log.info("So far, stored {} greetings", repository.count())
