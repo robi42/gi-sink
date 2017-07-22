@@ -18,6 +18,7 @@ class DatabasePersistingSink(private val repository: GreetingRepository) {
     @StreamListener(Sink.INPUT)
     fun store(greeting: GreetingDto) {
         log.info("Received: '{}'", greeting)
+
         repository.save(Greeting(
                 text = greeting.text,
                 timestamp = greeting.timestamp
