@@ -6,9 +6,8 @@ import org.springframework.cloud.stream.messaging.Sink
 import org.springframework.data.repository.CrudRepository
 import org.springframework.stereotype.Repository
 import java.time.Instant
-import javax.persistence.Entity
-import javax.persistence.GeneratedValue
-import javax.persistence.Id
+import java.time.Instant.now
+import javax.persistence.*
 
 @EnableBinding(Sink::class)
 class DatabasePersistingSink(private val repository: GreetingRepository) {
@@ -19,10 +18,7 @@ class DatabasePersistingSink(private val repository: GreetingRepository) {
     fun store(greeting: GreetingDto) {
         log.info("Received: '{}'", greeting)
 
-        repository.save(Greeting(
-                text = greeting.text,
-                timestamp = greeting.timestamp
-        ))
+        repository.save(greeting.toEntity())
         log.debug("So far, stored {} greetings", repository.count())
     }
 
@@ -33,11 +29,23 @@ data class GreetingDto(
         val timestamp: Instant
 )
 
+internal fun GreetingDto.toEntity() = Greeting(
+        text = this.text,
+        timestamp = this.timestamp
+)
+
 @Entity data class Greeting(
         @GeneratedValue
         @Id val id: Long? = null,
         val text: String,
-        val timestamp: Instant
-)
+        val timestamp: Instant,
+        var lastModifiedAt: Instant? = null
+) {
+    @PrePersist
+    @PreUpdate
+    fun updateLastModifiedAt() {
+        lastModifiedAt = now()
+    }
+}
 
 @Repository interface GreetingRepository : CrudRepository<Greeting, Long>

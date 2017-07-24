@@ -22,3 +22,17 @@ databaseChangeLog:
                     type: datetime
                     constraints:
                       nullable: false
+
+  - changeSet:
+        id: 1
+        author: rthurnher
+        changes:
+          - addColumn:
+              tableName: greeting
+              columns:
+                  - column:
+                      name: last_modified_at
+                      type: datetime
+                      value: current_timestamp
+                      constraints:
+                        nullable: false
