@@ -1,5 +1,5 @@
 spring:
-  application.name: gisink-test
+  application.name: gi-sink-test
   main.banner-mode: "off"
 
 management.port: -1
