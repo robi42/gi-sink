@@ -42,8 +42,7 @@ internal fun GreetingDto.toEntity() = Greeting(
         var lastModifiedAt: Instant? = null
 ) {
     @PrePersist
-    @PreUpdate
-    fun updateLastModifiedAt() {
+    @PreUpdate fun updateLastModifiedAt() {
         lastModifiedAt = now()
     }
 }
