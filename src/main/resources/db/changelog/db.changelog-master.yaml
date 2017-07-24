@@ -34,5 +34,6 @@ databaseChangeLog:
                       name: last_modified_at
                       type: datetime
                       value: current_timestamp
+                      defaultValue: current_timestamp
                       constraints:
                         nullable: false
