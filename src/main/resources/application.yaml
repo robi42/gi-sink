@@ -16,6 +16,7 @@ spring:
 
   cloud.stream:
     bindings.input:
+      group: gi
 #      destination: greetings
       destination: transformed-greetings
       content-type: application/json
