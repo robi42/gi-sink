@@ -4,7 +4,6 @@ import org.assertj.core.api.Assertions.assertThat
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.springframework.boot.test.context.SpringBootTest
-import org.springframework.cloud.stream.annotation.Bindings
 import org.springframework.cloud.stream.messaging.Sink
 import org.springframework.test.context.ActiveProfiles
 import org.springframework.test.context.junit4.SpringRunner
@@ -14,10 +13,8 @@ import javax.inject.Inject
 @RunWith(SpringRunner::class)
 @SpringBootTest class GiSinkApplicationTests {
 
-    @Inject
-    @Bindings(DatabasePersistingSink::class)
     @Suppress("SpringKotlinAutowiring")
-    private lateinit var sink: Sink
+    @Inject private lateinit var sink: Sink
 
     @Test fun `context loads`() {}
 
